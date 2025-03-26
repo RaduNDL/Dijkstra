@@ -17,13 +17,13 @@ void dijkstra(int V, vector<vector<pair<int, int>>>& adj, int src, const string&
         int u = pq.top().second; 
         int d = pq.top().first; 
         pq.pop(); 
-        if (d > dist[u]) continue; // Daca distanta este mai mare decat cea cunoscuta, continua
-        for (auto& neighbor : adj[u]) { // Pentru fiecare vecin
+        if (d > dist[u]) continue; 
+        for (auto& neighbor : adj[u]) { 
             int v = neighbor.first; 
             int weight = neighbor.second; 
-            if (dist[u] + weight < dist[v]) { // Daca se gaseste o cale mai scurta
-                dist[v] = dist[u] + weight; // Actualizeaza distanta
-                pq.push({ dist[v], v }); // Adauga vecinul in coada
+            if (dist[u] + weight < dist[v]) { 
+                dist[v] = dist[u] + weight; 
+                pq.push({ dist[v], v }); 
             }
         }
     }
